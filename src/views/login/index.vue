@@ -54,6 +54,7 @@
 
 <script>
 import { validUsername } from '@/utils/validate'
+import {setSupport,getSupport,setCookie,getCookie} from '@/utils/support'
 
 export default {
   name: 'Login',
@@ -75,7 +76,7 @@ export default {
     return {
       loginForm: {
         username: 'admin',
-        password: '111111'
+        password: 'admin123'
       },
       loginRules: {
         username: [{ required: true, trigger: 'blur', validator: validateUsername }],
@@ -110,6 +111,8 @@ export default {
         if (valid) {
           this.loading = true
           this.$store.dispatch('user/login', this.loginForm).then(() => {
+            setCookie("username",this.loginForm.username,15);
+            setCookie("password",this.loginForm.password,15);
             this.$router.push({ path: this.redirect || '/' })
             this.loading = false
           }).catch(() => {
