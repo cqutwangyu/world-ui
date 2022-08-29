@@ -18,7 +18,7 @@ export function register(data) {
 
 export function getInfo() {
     return request({
-        url: '/admin/info',
+        url: '/world-admin/admin/info',
         method: 'get'
     })
 }
