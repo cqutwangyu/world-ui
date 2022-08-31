@@ -103,7 +103,7 @@
                ref="adminForm"
                label-width="150px" size="small">
         <el-form-item label="帐号：">
-          <el-input v-model="admin.username" style="width: 250px"></el-input>
+          <el-input v-model="admin.username" style="width: 250px " :disabled="isEdit" ></el-input>
         </el-form-item>
         <el-form-item label="姓名：">
           <el-input v-model="admin.nickName" style="width: 250px"></el-input>
